@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#c62828">
+  <meta name="description" content="Guide hors-ligne des gestes de premiers secours.">
+  <title>Gestes de Premiers Secours</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icon.svg">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <button id="back" class="icon-btn" aria-label="Retour" hidden>←</button>
+    <h1 id="title">Premiers Secours</h1>
+  </header>
+
+  <section class="emergency" aria-label="Numéros d'urgence">
+    <a class="call call-main" href="tel:112">📞 112<small>Urgence (Europe / mobile)</small></a>
+    <a class="call" href="tel:15">15<small>SAMU</small></a>
+    <a class="call" href="tel:18">18<small>Pompiers</small></a>
+    <a class="call" href="sms:114">114<small>SMS/Sourds</small></a>
+  </section>
+
+  <main id="app">
+    <!-- Vue liste -->
+    <div id="list-view">
+      <input id="search" type="search" placeholder="Rechercher (ex : brûlure, étouffement…)" aria-label="Rechercher un geste">
+      <ul id="list" class="cards"></ul>
+      <p class="disclaimer">
+        ⚠️ Cette application est un aide-mémoire et ne remplace pas une formation aux premiers secours
+        (PSC1, SST…). En cas de doute, appelez toujours les secours.
+      </p>
+    </div>
+
+    <!-- Vue détail -->
+    <article id="detail-view" hidden>
+      <p id="detail-intro" class="intro"></p>
+      <div id="detail-alert" class="alert"></div>
+      <ol id="detail-steps" class="steps"></ol>
+      <div id="detail-dont" class="dont"></div>
+      <div id="metronome" class="metronome" hidden>
+        <p>Métronome de massage cardiaque : <strong>110 compressions / minute</strong></p>
+        <button id="metro-btn" class="btn">▶ Démarrer le rythme</button>
+        <div id="metro-pulse" class="pulse" aria-hidden="true"></div>
+        <p id="metro-count" class="count">0</p>
+      </div>
+    </article>
+  </main>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
